@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { DashBoardComponent } from './components/dash-board/dash-board.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductCreateComponent } from './components/product-create/product-create.component';
+import { ProductUpdateComponent } from './components/product-update/product-update.component';
 
 
 const routes= [
@@ -20,8 +22,22 @@ const routes= [
   },
   {
     path:"products",
-    component: ProductsComponent
+    children: [
+      {
+        path:"",
+        component: ProductsComponent
+      },
+      {
+        path:"create",
+        component: ProductCreateComponent
+      },
+      {
+        path:"update/:productId",
+        component: ProductUpdateComponent
+      }
+    ]
   }
+  
 ];
 
 
@@ -30,7 +46,10 @@ const routes= [
     AppComponent,
     HeaderComponent,
     DashBoardComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductCreateComponent,
+    ProductUpdateComponent
+
   ],
   imports: [    
     BrowserModule,
