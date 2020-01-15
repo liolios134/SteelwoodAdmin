@@ -16,6 +16,9 @@ import { ProductUpdateComponent } from './components/product-update/product-upda
 import { UsersComponent } from './components/users/users.component';
 import { UsersCreateComponent } from './components/users-create/users-create.component';
 import { UsersUpdateComponent } from './components/users-update/users-update.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoriesCreateComponent } from './components/categories-create/categories-create.component';
+import { CategoriesUpdateComponent } from './components/categories-update/categories-update.component';
 
 
 const routes= [
@@ -57,6 +60,24 @@ const routes= [
       }
 
     ]
+  },
+  {
+    path: "categories",
+    children: [
+      {
+        path: "",
+        component: CategoriesComponent
+      },
+      {
+        path:"create",
+        component: CategoriesCreateComponent
+      },
+      {
+        path:"update/:categoryId",
+        component: CategoriesUpdateComponent
+      }
+
+    ]
   }
   
 ];
@@ -72,7 +93,10 @@ const routes= [
     ProductUpdateComponent,
     UsersComponent,
     UsersCreateComponent,
-    UsersUpdateComponent
+    UsersUpdateComponent,
+    CategoriesComponent,
+    CategoriesCreateComponent,
+    CategoriesUpdateComponent
 
   ],
   imports: [    

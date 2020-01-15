@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row my-3">
         <div class="col-sm-8">
-            <h1 class="text-center">Products List</h1>
+            <h1 class="text-center">Categories List</h1>
         </div>
         <div class="col-sm-4 text-right">
-            <button class="btn btn-info" (click)="getProducts()">
+            <button class="btn btn-info" (click)="getCategories()">
                 <i class="fa fa-refresh"></i>
             </button>
-            <a class="btn btn-primary" routerLink="/products/create">
+            <a class="btn btn-primary" routerLink="/categories/create">
                 <i class="fa fa-plus"></i> Add New
             </a>
         </div>
@@ -25,28 +25,17 @@
                 <table class="table table-bordered table-striped table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">Photo</th>
                             <th scope="col">Title</th>
-                            <th scope="col">miniDesc</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Sale</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">Tools</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let p of products">
-                            <td><img [src]="p.photo" height="30" alt=""></td>
-                            <td>{{p.title}}</td>
-                            <td>{{p.miniDesc}}</td>
-                            <td>{{p.price}}</td>
-                            <td>{{p.sale}}</td>
-                            <td>{{p.category.title}}</td>
+                        <tr *ngFor="let c of categories">
+                            <td>{{c.title}}</td>
                             <td class="text-nowrap">
-                                <a [routerLink]="'/products/update/' + p._id" class="btn btn-sm btn-warning mr-2">
+                                <a [routerLink]="'/categories/update/' + c._id" class="btn btn-sm btn-warning mr-2">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <button (click)="deleteProduct(p._id)" class="btn btn-sm btn-danger">
+                                <button (click)="deleteCategory(c._id)" class="btn btn-sm btn-danger">
                                     <i class="fa fa-remove"></i>
                                 </button>
                             </td>

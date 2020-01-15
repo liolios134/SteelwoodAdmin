@@ -35,7 +35,7 @@ export class UsersUpdateComponent implements OnInit {
   }
 
   public saveUser() {
-    this.http.post(environment.apiUrl + "/users", this.user)
+    this.http.put(environment.apiUrl + "/users/" + this.user._id, this.user)
     .subscribe(response => {
       this.router.navigate(["/users"]);
     });
