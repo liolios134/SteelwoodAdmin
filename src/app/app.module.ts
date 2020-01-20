@@ -19,6 +19,8 @@ import { UsersUpdateComponent } from './components/users-update/users-update.com
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoriesCreateComponent } from './components/categories-create/categories-create.component';
 import { CategoriesUpdateComponent } from './components/categories-update/categories-update.component';
+import { EditorModule } from '@tinymce/tinymce-angular';
+
 
 
 const routes= [
@@ -105,7 +107,9 @@ const routes= [
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    EditorModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

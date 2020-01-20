@@ -64,8 +64,10 @@
     <div class="row">
         <div class="col-12">
             <div class="form-group">
-                <label for="product-description">Product Description</label>
-                <textarea [(ngModel)]="product.desc" name="" class="form-control" id="product-description" cols="30" rows="10"></textarea>
+                <label>Product Description</label>
+                <editor apiKey="no-api-key" [(ngModel)]="product.desc">
+
+                </editor>
             </div>
         </div>
     </div>
@@ -75,3 +77,4 @@
         </div>
     </div>
 </div>
+<pre>{{product | json}}</pre>
