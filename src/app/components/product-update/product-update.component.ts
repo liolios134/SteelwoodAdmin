@@ -4,6 +4,7 @@ import { ICategory } from 'src/app/interfaces/ICategory';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { IResponse } from 'src/app/interfaces/IResponse';
 
 @Component({
   selector: 'app-product-update',
@@ -31,9 +32,9 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   public initProduct(id: string) {
-    this.http.get<IProduct>(environment.apiUrl + "/products/" + id)
+    this.http.get<IResponse>(environment.apiUrl + "/products/" + id)
     .subscribe(response => {
-      this.product = response;
+      this.product = response.product;
     });
   }
 

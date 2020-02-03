@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,9 @@ import { CategoriesUpdateComponent } from './components/categories-update/catego
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { LoginComponent } from './components/login/login.component';
 import { AdminLayoutComponent } from './components/admin-layout/admin-layout.component';
+import {NgxWebstorageModule} from 'ngx-webstorage';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { AuthGuard } from './guards/auth.guard';
 
 
 
@@ -29,6 +32,7 @@ const routes= [
   {
     path:"",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children:[
       {
         path:"",
@@ -122,10 +126,18 @@ const routes= [
     HttpClientModule,
     RouterModule.forRoot(routes),
     NgbModule.forRoot(),
-    EditorModule
+    EditorModule,
+    NgxWebstorageModule.forRoot()
+
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
