@@ -36,7 +36,7 @@ export class ProductCreateComponent implements OnInit {
   public getCategories() {
     this.http.get<ICategory[]>(environment.apiUrl + "/categories")
     .subscribe(response => {
-      this.categories = response;
+      this.categories = response.categories;
     });
   }
 
