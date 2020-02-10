@@ -15,7 +15,7 @@ export class ProductUpdateComponent implements OnInit {
   
   
   public product: Partial<IProduct> = {};
-  public categories: ICategory[] = [];
+  public categories: ICategory[] = [] ;
 
   constructor(
     private router: Router,
@@ -46,7 +46,7 @@ export class ProductUpdateComponent implements OnInit {
   }
 
   public getCategories() {
-    this.http.get<ICategory[]>(environment.apiUrl + "/categories")
+    this.http.get<IResponse>(environment.apiUrl + "/categories")
     .subscribe(response => {
       this.categories = response.categories;
     });
