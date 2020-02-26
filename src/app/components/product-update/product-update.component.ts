@@ -51,4 +51,24 @@ export class ProductUpdateComponent implements OnInit {
       this.categories = response.categories;
     });
   }
+
+  public onUploadSuccess(data) {
+    this.product.photo = data[1].filename;
+  }
+
+  public onUploadError(data) {
+    console.log("ERROR: ", data);
+  }
+
+  // Gallery
+  public onUploadGallerySuccess(data) {
+    if (!this.product.gallery) {
+      this.product.gallery = [];
+    }
+    this.product.gallery.push(data[1].filename);
+  }
+
+  public removeFromGallery(i) {
+    this.product.gallery.splice(i, 1);
+  }
 }

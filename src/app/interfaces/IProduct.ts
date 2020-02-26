@@ -7,5 +7,6 @@ export interface IProduct {
     sale: Number;
     photo: String;
     category: String;
+    gallery:String[];
 }
 

@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let p of products">
-                            <td><img [src]="p.photo" height="30" alt=""></td>
+                            <td><img [src]="'http://localhost:3000/uploads/' + p.photo" height="30" /></td>
                             <td>{{p.title}}</td>
                             <td>{{p.miniDesc}}</td>
                             <td>{{p.price}}</td>
