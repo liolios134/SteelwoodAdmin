@@ -1,7 +1,5 @@
-export const environment = {
-  production: false,
-  apiUrl:"http://localhost:3000/admin",
-  firebase:{
+importScripts('https://www.gstatic.com/firebasejs/7.6.0/firebase.js');
+firebase.initializeApp({
     apiKey: "AIzaSyCU0S0UderTAiAnrrgBCJFSB3LMr3cGizo",
     authDomain: "jlio-878bf.firebaseapp.com",
     databaseURL: "https://jlio-878bf.firebaseio.com",
@@ -10,7 +8,5 @@ export const environment = {
     messagingSenderId: "1089511448753",
     appId: "1:1089511448753:web:9ecda7c4f042512c480290",
     measurementId: "G-VDRC468XMB"
-  }
-};
-
- 
+});
+const messaging = firebase.messaging();
